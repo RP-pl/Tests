@@ -1,0 +1,3 @@
+C:\Users\RP\VisualStudioProjects\MongoDBJS\MongoDBJS\obj\Debug\MongoDBJS.njsprojAssemblyReference.cache
+C:\Users\RP\VisualStudioProjects\MongoDBJS\MongoDBJS\obj\Debug\MongoDBJS.njsproj.CoreCompileInputs.cache
+C:\Users\RP\VisualStudioProjects\MongoDBJS\MongoDBJS\bin\Microsoft.NodejsTools.WebRole.dll

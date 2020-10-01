@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+</head>
+<body ng-controller = 'nameController as ctrl'>
+<script>
+angular.module("App",[]).directive("addNameField",[function(){
+return {
+template:'<input type=text ng-model="ctrl.name">'+'<div> Witaj {{ctrl.name}} </div>' + '<div> Odwrotność twojego imienia to  </div>' + '<div ng-bind="reverse(ctrl.name)"></div>',
+restrict : 'AE',
+link : function($scope,$element,$attrs){$scope.reverse = function(name){var s = '';for(let char of name){s= char + s;}return s;}
+}
+}
+}]).controller('nameController',[function(){
+this.name = 'XYZ'
+}])
+</script>
+<div add-name-field></div>
+<add-name-field/>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FileTemplate</title>
+</head>
+<body>
+<form method="post" th:action="@{file}" enctype="multipart/form-data">
+    <input type="text" name="text" class="text input">
+    <input type="file" name="file" class="file input">
+    <input type="submit" name="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Angularjs Routing</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.js"></script>
+<h1>XYZ</h1>
+<a href="#!name">name</a>
+<a href="#!age">age</a>
+<div ng-view></div>
+<script>
+
+   angular.module("App",['ngRoute']).controller('RouteController',[function(){
+   var self = this
+   self.name = "XYZ"
+   self.age = "1345"
+   }])
+   .config(function($routeProvider){
+   $routeProvider
+   .when("/name",{template : "<h1>{{ctrl.name}}</h1>",controller : 'RouteController',controllerAs : 'ctrl'})
+   .when("/age",{template : "<h1>{{ctrl.age}}</h1>",controller : 'RouteController',controllerAs : 'ctrl'})
+   .otherwise({template:"<h1>{{ctrl.msg}}</h1>",controller : function(){
+   var self = this
+   self.msg = "Nothing to show"},controllerAs:'ctrl'})
+   })
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "mongo-dbjs",
+  "version": "0.0.0",
+  "description": "MongoDBJS",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}

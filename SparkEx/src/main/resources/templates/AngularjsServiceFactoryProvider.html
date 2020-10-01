@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Factory Service Provider</title>
+</head>
+<body>
+<div ng-controller = "AppController as ctrl">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
+<script>
+    angular.module("App",[])
+    .service('helloService',function(){
+    this.hello = function(){ return 'Hello World'}
+    })
+    .factory('helloFactory',function(){
+    return { hello: function(){ return 'Hello World'}}
+    })
+    .provider('helloProvider', function() {
+
+    this.name = 'Default';
+
+    this.$get = function() {
+        var name = this.name;
+        return {hello: function() {return "Hello " + name}}
+
+        }
+    this.setName = function(name) {
+        this.name = name;
+    };
+})
+    //Musi mieć ten 2 Provider
+    .config(function(helloProviderProvider){helloProviderProvider.setName("World")})
+    .controller("AppController",['helloFactory','helloService','helloProvider',function(helloFactory,helloService,helloProvider){
+    var self = this;
+    self.hF = helloFactory.hello()
+    self.hS = helloService.hello()
+    self.hP = helloProvider.hello()
+    }])
+    .factory("testFactory",function(){
+    let items = ["item1","item2","item3"]
+    return {
+        add: function(item){
+            items.push(item);
+        },
+        list: function(){
+            return items;
+        }
+    }
+})
+.service('testService',function(){
+    this.items = ["item1","item2","item3"]
+    this.add = function(item){this.items.push(item)}
+    this.list = function(){return this.items}
+})
+.controller('testCtrl',['testFactory','testService',function(testFactory,testService){
+var self = this
+self.two = testFactory.list()
+self.one = testService.list()
+
+}])
+.controller('testCtr',['testFactory','testService',function(testFactory,testService){
+var self = this
+testFactory.add("item4")
+self.two = testFactory.list()
+testService.add("item4")
+self.one = testService.list()
+}])
+</script>
+<h1>{{ctrl.hF}}</h1>
+<h1>{{ctrl.hS}}</h1>
+<h1>{{ctrl.hP}}</h1>
+</div>
+<div>
+    <div ng-controller = "testCtrl as ctrl">
+    <h2>{{::ctrl.one}}</h2>
+    <h2>{{::ctrl.two}}</h2>
+    </div>
+    <div ng-controller = "testCtr as ctrl">
+    <h2>{{::ctrl.one}}</h2>
+    <h2>{{::ctrl.two}}</h2>
+    </div>
+</div>
+</body>
+</html>

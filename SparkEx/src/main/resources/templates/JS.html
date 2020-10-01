@@ -1,0 +1,33 @@
+<html>
+<meta charset="UTF-8">
+<head><title>An Example Form</title>
+    <style>.signup { border: 1px solid #999999;
+	font: normal 14px helvetica; color:#444444; }</style>
+
+    <script>
+function validate(form) {
+	print(form.name.value)
+	print(form.age.value)
+	print(form.pass.value)
+	alert(form.name.value +"\n"+form.age.value+"\n"+form.pass.value)
+	return false
+}
+</script></head><body>
+
+<table class="signup" border="0" cellpadding="2"
+       cellspacing="5" bgcolor="#eeeeee">
+    <th colspan="2" align="center">Signup Form</th>
+    <form method="POST" onSubmit="return validate(this)">
+        <tr><td>Forename</td><td><input type="text" maxlength="32" name="name" /></td>
+        </tr><tr><td>Surname</td><td><input type="text" maxlength="32" name="age" /></td>
+    </tr><tr><td>Username</td><td><input type="text" maxlength="16" name="pass" /></td>
+    </tr><tr><td colspan="2" align="center">
+        <input type="submit" value="Signup" /></td>
+    </tr></form></table>
+
+<script>
+function print(field) {
+    console.log(field)
+}
+</script></body></html>
+

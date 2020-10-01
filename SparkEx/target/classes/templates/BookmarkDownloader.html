@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmark Downloader</title>
+</head>
+<body>
+<a href="" id="a"></a>
+<button onclick="download(bm,'file.txt','text/plain')">Pobierz zakładki</button>
+<script>
+    function download(text, name, type) {
+
+  var a = document.getElementById("a");
+  var file = new Blob([text], {type: type});
+  a.href = URL.createObjectURL(file);
+  a.download = name;
+  }
+  var root = browser.bookmarks.getTree()
+  var bn =[]
+  for(var child in root.getChildren()){
+  if(child.BookmarkTreeNodeType == 'bookmark'){
+  bookmarks.push(child)
+  }
+}
+
+</script>
+</body>
+</html>
