@@ -1,9 +1,15 @@
 package Spr.web;
 
+import Spr.Data.User;
+import Spr.Data.UserRepository;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
@@ -40,7 +46,7 @@ class Person{
         return age;
     }
 }
-
+@Component
 @Controller
 @RequestMapping("/r")
 public class ViewController {
@@ -149,4 +155,5 @@ public class ViewController {
     public ResponseEntity<byte[]> videoPOst(@RequestParam("video")MultipartFile video){
         return prepareContent(video);
     }
+
 }
