@@ -7,8 +7,8 @@
             <property name="hibernate.connection.serverTimezone" value="UTC"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/userdb"/>
-            <property name="javax.persistence.jdbc.user" value="username"/>
-            <property name="javax.persistence.jdbc.password" value="passwprd"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="Asdrtyui"/>
         </properties>
     </persistence-unit>
 </persistence>
